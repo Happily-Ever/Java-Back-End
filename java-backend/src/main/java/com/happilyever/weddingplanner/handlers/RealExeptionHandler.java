@@ -22,7 +22,7 @@ import java.util.Date;
 
 // bean shared across controller classes
 @ControllerAdvice
-public class RestExceptionHandler extends ResponseEntityExceptionHandler
+class RestExceptionHandler extends ResponseEntityExceptionHandler
 {
     @Autowired
     private MessageSource messageSource;

@@ -63,6 +63,12 @@ public class UserServiceImpl implements UserDetailsService, UserService
         }
     }
 
+    @Override
+    public User save(User user)
+    {
+        return null;
+    }
+
 
     @Transactional
     @Override
@@ -96,4 +102,6 @@ public class UserServiceImpl implements UserDetailsService, UserService
         }
 
     }
+
+
 }
