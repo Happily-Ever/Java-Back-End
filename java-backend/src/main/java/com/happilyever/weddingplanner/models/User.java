@@ -45,10 +45,14 @@ public class User extends Auditable
     public User(String username, String password, String email, String location, List<Wedding> weddings)
     {
         this.username = username;
-        this.password = password;
+        setPassword(password);
         this.email = email;
         this.location = location;
         this.weddings = weddings;
+    }
+
+    public User()
+    {
     }
 
     public long getUserid()
@@ -115,12 +119,15 @@ public class User extends Auditable
     public void setWeddings(List<Wedding> weddings)
     {
         this.weddings = weddings;
+
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthority()
+    public List<SimpleGrantedAuthority> getAuthority()
     {
-        return null;
+        List<SimpleGrantedAuthority> rtnList = new ArrayList<>();
+        String myRole = "ROLE_PLANNER";
+        rtnList.add(new SimpleGrantedAuthority(myRole));
+        return rtnList;
     }
 }
 

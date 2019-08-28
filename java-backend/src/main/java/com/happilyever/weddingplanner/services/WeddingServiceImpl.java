@@ -1,6 +1,5 @@
 package com.happilyever.weddingplanner.services;
 
-import com.happilyever.weddingplanner.models.User;
 import com.happilyever.weddingplanner.repository.WeddingRepository;
 import com.happilyever.weddingplanner.models.Wedding;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,13 +50,9 @@ public class WeddingServiceImpl implements WeddingService
     }
 
     @Override
-    public List<User> findByUserName(String username)
+    public List<Wedding> findByUserName(String username)
     {
-        List<Wedding> list = new ArrayList<>();
-        weddingrepos.findAll().iterator().forEachRemaining(list::add);
-
-        list.removeIf(q -> !q.getUsers().getUsername().equalsIgnoreCase(username));
-        return list;
+        return weddingrepos. findByUser_Username(username);
     }
 
     @Override
@@ -70,10 +65,7 @@ public class WeddingServiceImpl implements WeddingService
             newTodo.setWedding(wedding.getWedding());
         }
 
-        if (wedding.getUsers() != null)
-        {
-            newTodo.setUsers(wedding.getUsers());
-        }
+
 
         return weddingrepos.save(newTodo);
     }

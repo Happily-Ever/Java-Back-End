@@ -30,7 +30,7 @@ public class UserController
     @Autowired
     private UserService userService;
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+
     @GetMapping(value = "/users",
                 produces = {"application/json"})
     public ResponseEntity<?> listAllUsers(HttpServletRequest request)
@@ -42,7 +42,7 @@ public class UserController
     }
 
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+
     @GetMapping(value = "/user/{userId}",
                 produces = {"application/json"})
     public ResponseEntity<?> getUser(HttpServletRequest request,
@@ -67,7 +67,7 @@ public class UserController
     }
 
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+
     @PostMapping(value = "/user",
                  consumes = {"application/json"},
                  produces = {"application/json"})
@@ -87,7 +87,7 @@ public class UserController
         return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
     }
 
-
+    //localhost:2019/users/user
     @PutMapping(value = "/user/{id}")
     public ResponseEntity<?> updateWedding(HttpServletRequest request,
                                         @RequestBody
@@ -102,7 +102,7 @@ public class UserController
     }
 
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+
     @DeleteMapping("/user/{id}")
     public ResponseEntity<?> deleteUserById(HttpServletRequest request,
                                             @PathVariable

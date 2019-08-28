@@ -12,10 +12,10 @@ import java.io.IOException;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
-class SimpleCorsFilter implements Filter
+class SimpleCorsFile implements Filter
 {
 
-    public SimpleCorsFilter()
+    public SimpleCorsFile()
     {
     }
 

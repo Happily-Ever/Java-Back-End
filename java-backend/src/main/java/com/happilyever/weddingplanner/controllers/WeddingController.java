@@ -29,6 +29,9 @@ public class WeddingController
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private WeddingService weddingService;
+
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping(value = "/weddings",
                 produces = {"application/json"})
@@ -55,7 +58,7 @@ public class WeddingController
     {
         logger.trace(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed");
 
-        newedding = userService.save(newedding);
+        newedding = weddingService.save(newedding);
 
         // set the location header for the newly created resource
         HttpHeaders responseHeaders = new HttpHeaders();
@@ -75,7 +78,7 @@ public class WeddingController
     {
         logger.trace(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed");
 
-        userService.update(updateWedding, id);
+        weddingService.update(updateWedding, id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -92,4 +95,4 @@ public class WeddingController
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
-}
+

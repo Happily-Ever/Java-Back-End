@@ -33,5 +33,5 @@ abstract class Auditable
     @Temporal(TIMESTAMP)
     protected Date lastModifiedDate;
 
-    public abstract Collection<? extends GrantedAuthority> getAuthority();
+
 }

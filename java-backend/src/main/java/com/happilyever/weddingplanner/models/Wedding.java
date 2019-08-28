@@ -35,56 +35,32 @@ public class Wedding extends Auditable
     private String weddingphotographer;
 
 
-    private String userid;
-
-
     private String meal;
 
 
     private String wedding;
 
 
-    @OneToMany(mappedBy = "user",
-               cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("user")
-    private List<User> users = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "userid",
+                nullable = false)
+    @JsonIgnoreProperties("weddings")
 
+    private User user;
     public Wedding()
     {
     }
 
-    public Wedding(String wedding ,String couplename, String weddingtheme, String itemphoto, String weddingdate, String weddinglocation, String meal, String weddingphotographer, String userid, List<User> users)
+    public Wedding(String couplename, String weddingtheme, String itemphoto, String weddingdate, String weddinglocation, String weddingphotographer, String meal, String wedding)
     {
-        this.wedding = wedding;
         this.couplename = couplename;
         this.weddingtheme = weddingtheme;
         this.itemphoto = itemphoto;
         this.weddingdate = weddingdate;
         this.weddinglocation = weddinglocation;
         this.weddingphotographer = weddingphotographer;
-        this.userid = userid;
-        this.users = users;
         this.meal = meal;
-    }
-
-    public String getWedding()
-    {
-        return wedding;
-    }
-
-    public void setWedding(String wedding)
-    {
         this.wedding = wedding;
-    }
-
-    public String getMeal()
-    {
-        return meal;
-    }
-
-    public void setMeal(String meal)
-    {
-        this.meal = meal;
     }
 
     public long getWeddingid()
@@ -157,29 +133,23 @@ public class Wedding extends Auditable
         this.weddingphotographer = weddingphotographer;
     }
 
-    public String getUserid()
+    public String getMeal()
     {
-        return userid;
+        return meal;
     }
 
-    public void setUserid(String userid)
+    public void setMeal(String meal)
     {
-        this.userid = userid;
+        this.meal = meal;
     }
 
-    public List<User> getUsers()
+    public String getWedding()
     {
-        return users;
+        return wedding;
     }
 
-    public void setUsers(List<User> users)
+    public void setWedding(String wedding)
     {
-        this.users = users;
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthority()
-    {
-        return null;
+        this.wedding = wedding;
     }
 }
