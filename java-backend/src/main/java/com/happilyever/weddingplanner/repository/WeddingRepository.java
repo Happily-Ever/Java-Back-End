@@ -10,7 +10,7 @@ public interface WeddingRepository extends CrudRepository<Wedding, Long>
 {
     @Transactional
     @Modifying
-    @Query(value = "DELETE from UserRoles where userid = :userid")
+    @Query(value = "DELETE from User where userid = :userid")
     void deleteUserRolesByUserId(long userid);
 
     @Transactional

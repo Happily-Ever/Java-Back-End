@@ -1,13 +1,15 @@
 package com.happilyever.weddingplanner.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "wedding")
 public class Wedding extends Auditable
 {
     @Id
@@ -39,6 +41,9 @@ public class Wedding extends Auditable
     private String meal;
 
 
+    private String wedding;
+
+
     @OneToMany(mappedBy = "user",
                cascade = CascadeType.ALL)
     @JsonIgnoreProperties("user")
@@ -48,8 +53,9 @@ public class Wedding extends Auditable
     {
     }
 
-    public Wedding(String couplename, String weddingtheme, String itemphoto, String weddingdate, String weddinglocation, String meal, String weddingphotographer, String userid, List<User> users)
+    public Wedding(String wedding ,String couplename, String weddingtheme, String itemphoto, String weddingdate, String weddinglocation, String meal, String weddingphotographer, String userid, List<User> users)
     {
+        this.wedding = wedding;
         this.couplename = couplename;
         this.weddingtheme = weddingtheme;
         this.itemphoto = itemphoto;
@@ -59,6 +65,16 @@ public class Wedding extends Auditable
         this.userid = userid;
         this.users = users;
         this.meal = meal;
+    }
+
+    public String getWedding()
+    {
+        return wedding;
+    }
+
+    public void setWedding(String wedding)
+    {
+        this.wedding = wedding;
     }
 
     public String getMeal()
@@ -141,15 +157,15 @@ public class Wedding extends Auditable
         this.weddingphotographer = weddingphotographer;
     }
 
-//    public String getUserid()
-//    {
-//        return userid;
-//    }
-//
-//    public void setUserid(String userid)
-//    {
-//        this.userid = userid;
-//    }
+    public String getUserid()
+    {
+        return userid;
+    }
+
+    public void setUserid(String userid)
+    {
+        this.userid = userid;
+    }
 
     public List<User> getUsers()
     {
@@ -159,5 +175,11 @@ public class Wedding extends Auditable
     public void setUsers(List<User> users)
     {
         this.users = users;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthority()
+    {
+        return null;
     }
 }

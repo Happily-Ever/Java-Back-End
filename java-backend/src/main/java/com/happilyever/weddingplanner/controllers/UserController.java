@@ -89,15 +89,15 @@ public class UserController
 
 
     @PutMapping(value = "/user/{id}")
-    public ResponseEntity<?> updateUser(HttpServletRequest request,
+    public ResponseEntity<?> updateWedding(HttpServletRequest request,
                                         @RequestBody
-                                                User updateUser,
+                                                User updateWedding,
                                         @PathVariable
                                                 long id)
     {
         logger.trace(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed");
 
-        userService.update(updateUser, id);
+        userService.update(updateWedding, id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
