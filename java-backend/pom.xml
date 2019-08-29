@@ -8,11 +8,11 @@
         <version>2.1.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.lambdaschool</groupId>
-    <artifactId>authenticatedusers</artifactId>
+    <groupId>com.happilyever</groupId>
+    <artifactId>weddingplanner</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>authenticatedusers</name>
-    <description>Demo project for Spring Boot</description>
+    <name>weddingplanner</name>
+    <description>A wedding planner's dream app!</description>
 
     <properties>
         <java.version>11</java.version>
@@ -136,7 +136,7 @@
 
     <build>
         <!--        <finalName>${project.artifactId}</finalName>-->
-        <finalName>jrmmba-starthere</finalName>
+        <finalName>happilyever-be</finalName>
 
         <plugins>
             <plugin>
@@ -149,9 +149,9 @@
             <plugin>
                 <groupId>com.heroku.sdk</groupId>
                 <artifactId>heroku-maven-plugin</artifactId>
-                <version>2.0.3</version>
+                <version>2.0.10</version>
                 <configuration>
-                    <appName>jrmmba-starthere</appName>
+                    <appName>happilyever-be</appName>
                     <includeTarget>false</includeTarget>
                     <includes>
                         <!--   For windows      <include>${project.build.directory}\${project.build.finalName}.jar</include>-->
